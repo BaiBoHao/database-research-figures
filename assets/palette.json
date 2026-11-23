@@ -1,0 +1,81 @@
+{
+  "name": "Computer Systems Research Palette",
+  "neutral": {
+    "background": "#FFFFFF",
+    "text": "#253448",
+    "muted": "#536276",
+    "edge": "#607085",
+    "rule": "#D3DBE4",
+    "panel": "#F4F7FA"
+  },
+  "architecture": {
+    "access": {
+      "label": "Ingress",
+      "base": "#A1C1E2",
+      "fill": "#EDF4FB",
+      "ink": "#315F89"
+    },
+    "control": {
+      "label": "Decision",
+      "base": "#CFBCDA",
+      "fill": "#F4EEF7",
+      "ink": "#694982"
+    },
+    "resource": {
+      "label": "Resources",
+      "base": "#F4BF98",
+      "fill": "#FBE8D7",
+      "ink": "#895129"
+    },
+    "cluster": {
+      "label": "Database",
+      "base": "#DDEDD1",
+      "fill": "#F0F6ED",
+      "ink": "#376759"
+    },
+    "fault": {
+      "label": "Fault",
+      "base": "#EDB5B0",
+      "fill": "#FAECEA",
+      "ink": "#963E3E"
+    }
+  },
+  "plot": {
+    "services": {
+      "tp": {
+        "label": "TP",
+        "color": "#0072B2",
+        "linestyle": "-",
+        "marker": "o"
+      },
+      "ap": {
+        "label": "AP",
+        "color": "#D55E00",
+        "linestyle": "--",
+        "marker": "s"
+      },
+      "vector": {
+        "label": "Vector search",
+        "color": "#009E73",
+        "linestyle": "-.",
+        "marker": "^"
+      }
+    },
+    "methods": {
+      "proposed": {
+        "label": "Proposed",
+        "color": "#694982",
+        "linestyle": "-",
+        "marker": "D"
+      },
+      "fixed": {
+        "label": "Fixed config",
+        "color": "#536276",
+        "linestyle": "--",
+        "marker": "x"
+      }
+    },
+    "fault_band": "#FAECEA",
+    "fault_edge": "#963E3E"
+  }
+}

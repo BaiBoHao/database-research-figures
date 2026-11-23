@@ -1,0 +1,4 @@
+interface:
+  display_name: "Database Research Figures"
+  short_description: "Consistent palettes and editable database figures"
+  default_prompt: "Use $scientific-figure-style to draw this database architecture as an editable POS file."
