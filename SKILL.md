@@ -5,18 +5,18 @@ description: Draw or restyle editable architecture, method, and results figures 
 
 # Database Research Figures
 
-Use the labels and requirements in the user's paper or target venue first. Read [palette.json](assets/palette.json) for the default role and series mappings, and refer to the [icon catalog](assets/icons/ATTRIBUTION.md) for consistent SVG assets.
+Use the labels and requirements in the user's paper or target venue first. Read [palette.json](assets/palette.json) for the shared Okabe–Ito colors, derived tints, and series mappings. Refer to the [icon catalog](assets/icons/ATTRIBUTION.md) for consistent SVG assets.
 
 ## Architecture and method figures
 
 - Place clients, ingress, processing components, and deployment boundaries before styling. Attach arrows to their real endpoints. For primary–replica deployments, show where writes and eligible reads go, which node sends replication data, and which component issues control commands. Use a dashed connector for control signals and label connections that could be misread.
-- Group related elements under one understated boundary. Use pale blue for access, lavender for decisions, apricot for resources, pale green for database nodes, and pale red for a marked fault. Draw a readable system diagram with thin lines and a few labels. Add an icon when it identifies an entity, such as a database cylinder, server, or storage volume.
+- Group related elements using alignment, whitespace, short labels, and light tints without outlines. Use blue for access, reddish purple for decisions, orange for resources, and bluish green for replicas. Use strokes for real connections such as routing, replication, and control. Add an icon when it identifies an entity, such as a database cylinder, server, or storage volume.
 - Use the paper's fonts if specified. A thesis can use regular Times New Roman with Song-style CJK text, or another consistent, legible pair. Use a small size hierarchy, with normal-weight component labels. Use separate labels, ordinary punctuation, or line breaks for lists. Avoid decorative dot separators and repeated header cards.
 - Preserve the proportions and transparency of product artwork supplied for the figure. Use generic icons for reusable examples. Follow the relevant asset license when sharing a figure or its source.
 
 ## Experimental plots
 
-- Use [paper.mplstyle](assets/paper.mplstyle) and bind `plot.services` or `plot.methods` to names. Keep colors, line styles, and marker shapes stable across figures. If a plot compares two dimensions, assign color to one and use panels or another channel for the other.
+- Use [paper.mplstyle](assets/paper.mplstyle) and bind `plot.services` or `plot.methods` to names. Keep colors, line styles, and marker shapes stable across figures. Use a white canvas, an unframed legend, and left and bottom axes as the default for line and scatter plots. If a plot compares two dimensions, assign color to one and use panels or another channel for the other.
 - Label axes and units. Distinguish measured results from illustrations. Check that legend keys and line styles remain readable in grayscale at the paper's actual width.
 
 ## Delivery
