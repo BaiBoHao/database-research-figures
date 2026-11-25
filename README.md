@@ -1,6 +1,6 @@
 # Database Research Figures
 
-A Codex skill, a consistent paper palette, and a compact SVG icon library for database and computer-systems research. Use one Okabe–Ito palette across figures. Architecture diagrams group components with whitespace and light tints, while experiments use stable colors and line styles on white.
+A Codex skill, a consistent paper palette, and a compact SVG icon library for database and computer-systems research. Use one Okabe–Ito palette across figures and choose at most three main hues per figure. Architecture diagrams group components with whitespace and light tints, while experiments use stable colors and line styles on white.
 
 ![Palette for architecture diagrams and experiment plots](assets/palette-card.png)
 
