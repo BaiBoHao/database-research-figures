@@ -1,43 +1,43 @@
 {
-  "name": "Computer Systems Research Palette",
+  "name": "Okabe–Ito Research Figure Palette",
   "neutral": {
     "background": "#FFFFFF",
-    "text": "#253448",
-    "muted": "#536276",
-    "edge": "#607085",
-    "rule": "#D3DBE4",
-    "panel": "#F4F7FA"
+    "text": "#222222",
+    "muted": "#555555",
+    "edge": "#606060",
+    "rule": "#D9D9D9",
+    "panel": "#F5F5F5"
   },
   "architecture": {
     "access": {
       "label": "Ingress",
-      "base": "#A1C1E2",
-      "fill": "#EDF4FB",
-      "ink": "#315F89"
+      "base": "#0072B2",
+      "fill": "#E0EEF6",
+      "ink": "#0072B2"
     },
     "control": {
       "label": "Decision",
-      "base": "#CFBCDA",
-      "fill": "#F4EEF7",
-      "ink": "#694982"
+      "base": "#CC79A7",
+      "fill": "#F9EFF4",
+      "ink": "#8F5575"
     },
     "resource": {
       "label": "Resources",
-      "base": "#F4BF98",
-      "fill": "#FBE8D7",
-      "ink": "#895129"
+      "base": "#E69F00",
+      "fill": "#FCF3E0",
+      "ink": "#8A5F00"
     },
     "cluster": {
       "label": "Database",
-      "base": "#DDEDD1",
-      "fill": "#F0F6ED",
-      "ink": "#376759"
+      "base": "#009E73",
+      "fill": "#E0F3EE",
+      "ink": "#007A58"
     },
     "fault": {
       "label": "Fault",
-      "base": "#EDB5B0",
-      "fill": "#FAECEA",
-      "ink": "#963E3E"
+      "base": "#D55E00",
+      "fill": "#FAECE0",
+      "ink": "#A14800"
     }
   },
   "plot": {
@@ -64,18 +64,58 @@
     "methods": {
       "proposed": {
         "label": "Proposed",
-        "color": "#694982",
+        "color": "#CC79A7",
         "linestyle": "-",
         "marker": "D"
       },
       "fixed": {
         "label": "Fixed config",
-        "color": "#536276",
+        "color": "#000000",
         "linestyle": "--",
         "marker": "x"
       }
     },
-    "fault_band": "#FAECEA",
-    "fault_edge": "#963E3E"
+    "fault_band": "#FAECE0",
+    "fault_edge": "#A14800"
+  },
+  "okabe_ito": {
+    "blue": {
+      "label": "Blue",
+      "color": "#0072B2"
+    },
+    "orange": {
+      "label": "Orange",
+      "color": "#E69F00"
+    },
+    "bluish_green": {
+      "label": "Bluish green",
+      "color": "#009E73"
+    },
+    "reddish_purple": {
+      "label": "Reddish purple",
+      "color": "#CC79A7"
+    },
+    "sky_blue": {
+      "label": "Sky blue",
+      "color": "#56B4E9"
+    },
+    "vermilion": {
+      "label": "Vermilion",
+      "color": "#D55E00"
+    },
+    "yellow": {
+      "label": "Yellow",
+      "color": "#F0E442"
+    },
+    "black": {
+      "label": "Black",
+      "color": "#000000"
+    }
+  },
+  "card_labels": {
+    "swatches": "Okabe–Ito colors",
+    "architecture": "Light tints for architecture roles",
+    "results": "Experiment series styles",
+    "note": "Use the first three for services and the last two for methods."
   }
 }

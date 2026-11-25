@@ -1,6 +1,6 @@
 # Database Research Figures
 
-A Codex skill, a consistent paper palette, and a compact SVG icon library for database and computer-systems research. Architecture diagrams show component boundaries and concrete endpoints. Results plots preserve the meaning of series across figures.
+A Codex skill, a consistent paper palette, and a compact SVG icon library for database and computer-systems research. Use one Okabe–Ito palette across figures and choose at most three main hues per figure. Architecture diagrams group components with whitespace and light tints, while experiments use stable colors and line styles on white.
 
 ![Palette for architecture diagrams and experiment plots](assets/palette-card.png)
 
@@ -25,8 +25,8 @@ Then ask Codex: “Use `$scientific-figure-style` to draw the read/write paths, 
 | Resource | Purpose |
 | --- | --- |
 | [Skill instructions](SKILL.md) | Typography, architecture layout, series encoding, and delivery checks |
-| [Color definitions](assets/palette.json) | Soft architecture colors and stable experiment-series styles |
-| [Matplotlib stylesheet](assets/paper.mplstyle) | White background, print-friendly typography, and line defaults |
+| [Color definitions](assets/palette.json) | Eight Okabe–Ito colors, architecture tints, and stable series styles |
+| [Matplotlib stylesheet](assets/paper.mplstyle) | White background, left and bottom axes, and an unframed legend |
 | [Icon catalog](assets/icons/ATTRIBUTION.md) | 20 original Lucide SVGs, grouped by systems role |
 | [Primary–replica POS example](examples/primary-replica.pos) | Editable layout for a generic database cluster |
 | [Related drawing workflows](references/related-workflows.md) | Source-based layouts, final-size review, and figure tools |
@@ -45,4 +45,4 @@ Keep the palette, documentation, and preview aligned when changing a color. For 
 
 Repository-authored material is [MIT licensed](LICENSE). Bundled Lucide icons retain the [upstream license](assets/icons/LICENSE). The icon library contains generic systems symbols; use your own authorized image if you need a product mark.
 
-The experimental palette follows [Okabe–Ito Color Universal Design](https://jfly.uni-koeln.de/color/index.html). Figure accessibility guidance comes from the [Nature research figure guide](https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/). For POS geometry, see [generate-pos-flowchart](https://github.com/lilyjem/generate-pos-flowchart) and the ProcessOn import documentation.
+The shared palette follows [Okabe–Ito Color Universal Design](https://jfly.uni-koeln.de/color/index.html). Figure accessibility guidance comes from the [Nature research figure guide](https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/). For POS geometry, see [generate-pos-flowchart](https://github.com/lilyjem/generate-pos-flowchart) and the ProcessOn import documentation.

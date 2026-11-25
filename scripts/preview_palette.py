@@ -6,7 +6,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, Rectangle
+from matplotlib.patches import Circle, Rectangle
 
 
 ASSETS = Path(__file__).resolve().parents[1] / "assets"
@@ -27,49 +27,55 @@ def contrast(foreground, background):
 
 def check_contrast(theme):
     neutral = theme["neutral"]
+    anchors = {spec["color"] for spec in theme["okabe_ito"].values()}
     for role, spec in theme["architecture"].items():
-        for background in (spec["base"], spec["fill"]):
-            assert contrast(neutral["text"], background) >= 4.5, role
+        assert spec["base"] in anchors, role
+        assert contrast(neutral["text"], spec["fill"]) >= 4.5, role
         assert contrast(spec["ink"], spec["fill"]) >= 3, role
     for styles in (theme["plot"]["services"], theme["plot"]["methods"]):
         for key, spec in styles.items():
+            assert spec["color"] in anchors, key
             assert contrast(spec["color"], neutral["background"]) >= 3, key
 
 
 def draw(theme):
     plt.style.use(ASSETS / "paper.mplstyle")
     color = theme["neutral"]
-    fig, ax = plt.subplots(figsize=(10, 4.25), layout="none")
+    headings = theme["card_labels"]
+    fig, ax = plt.subplots(figsize=(10, 4.75), layout="none")
     fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
-    ax.set(xlim=(0, 1000), ylim=(425, 0))
+    ax.set(xlim=(0, 1000), ylim=(475, 0))
     ax.axis("off")
 
     def text(x, y, value, size, *, bold=False, fill=None):
         ax.text(x, y, value, fontsize=size, color=fill or color["text"],
                 fontweight="bold" if bold else "normal", va="center")
 
-    text(36, 42, "Color for Computer Systems Research", 20, bold=True)
-    text(36, 78, "Architecture: use light fills for component roles", 12, bold=True)
+    text(36, 35, theme["name"], 20, bold=True)
+    text(36, 73, headings["swatches"], 12, bold=True)
+    for i, spec in enumerate(theme["okabe_ito"].values()):
+        x = 36 + 117 * i
+        ax.add_patch(Circle((x + 18, 108), 17, facecolor=spec["color"], edgecolor="none", linewidth=0))
+        text(x, 142, spec["label"], 10)
+        text(x, 162, spec["color"], 9, fill=color["muted"])
+
+    text(36, 206, headings["architecture"], 12, bold=True)
     for i, spec in enumerate(theme["architecture"].values()):
         x = 36 + 188 * i
-        ax.add_patch(FancyBboxPatch((x, 100), 176, 94, boxstyle="round,pad=0,rounding_size=9",
-                                    facecolor=spec["fill"], edgecolor=spec["ink"], linewidth=1))
-        ax.add_patch(Rectangle((x + 14, 114), 18, 17, facecolor=spec["base"], edgecolor=spec["ink"], linewidth=.6))
-        text(x + 42, 122, spec["label"], 11, bold=True)
-        text(x + 14, 158, spec["base"], 10)
-        text(x + 14, 179, f'Fill  {spec["fill"]}', 8.5, fill=color["muted"])
+        ax.add_patch(Rectangle((x, 228), 176, 58, facecolor=spec["fill"], edgecolor="none", linewidth=0))
+        text(x + 13, 247, spec["label"], 11)
+        text(x + 13, 269, spec["fill"], 9, fill=color["muted"])
 
-    ax.plot((36, 964), (219, 219), color=color["rule"], linewidth=.9)
-    text(36, 244, "Results: keep color, line style and marker consistent", 12, bold=True)
+    text(36, 328, headings["results"], 12, bold=True)
     entries = [*theme["plot"]["services"].values(), *theme["plot"]["methods"].values()]
     for i, spec in enumerate(entries):
         x = 36 + 188 * i
-        ax.plot([x + 2, x + 35, x + 68], [301] * 3, color=spec["color"],
+        ax.plot([x, x + 27, x + 54], [374] * 3, color=spec["color"],
                 linestyle=spec["linestyle"], marker=spec["marker"], markevery=[1],
                 markersize=6, linewidth=2.1)
-        text(x + 79, 301, spec["label"], 10.5, bold=True)
-        text(x + 2, 328, spec["color"], 10, fill=color["muted"])
-    text(36, 386, "First three: compare services. Last two: compare methods.", 10, fill=color["muted"])
+        text(x + 67, 374, spec["label"], 10.5)
+        text(x, 402, spec["color"], 10, fill=color["muted"])
+    text(36, 449, headings["note"], 10, fill=color["muted"])
     fig.savefig(ASSETS / "palette-card.png", dpi=160)
     plt.close(fig)
 
